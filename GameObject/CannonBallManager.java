@@ -10,10 +10,13 @@ import Vector.Vector2f;
 public class CannonBallManager {
 
 	private ArrayList<CannonBall> cannonBalls; // The list of cannonballs in the world
+	
 	private float wind; // The amount of wind affecting the cannonball
 	private float windMultiplier; // The amount of possible change to the wind per progression
 	private float maxWind; // The max amount of wind allowed affecting the cannonball
+	
 	private float speed; // The velocity at which the cannonball falls
+	
 	private float spawnTimeLeft; // The amount of time left before another cannonball spawns
 	private float totalSpawnTime; // The total amount of time between each cannonball spawn
 	
@@ -24,7 +27,7 @@ public class CannonBallManager {
 		windMultiplier = 0.8f; // Initialize the wind multiplier to a small value
 		maxWind = 15.0f; // Initialize the max allowed wind
 		speed = 0.5f; // Initialize the starting velocity of cannonballs in the game
-		totalSpawnTime = spawnTimeLeft = 5f; // Initialize both the total spawn time and the current time left
+		totalSpawnTime = spawnTimeLeft = 3.5f; // Initialize both the total spawn time and the current time left
 	}
 	
 	public void progress(float delta) {
@@ -96,9 +99,9 @@ public class CannonBallManager {
 		speed += 0.05f; // Linearly increase speed infinitely by a small amount
 		
 		// Linearly decrease spawn time up until a set minimum (so it doesn't get absurdly unfair)
-		if (totalSpawnTime > 0.5f)
+		if (totalSpawnTime > 0.7f)
 		{
-			totalSpawnTime -= 0.5f;
+			totalSpawnTime -= 0.15f;
 		}
 		// Linearly increase the wind multiplier up until a set maximum (so it doesn't get unreasonably jittery)
 		if (windMultiplier < 5f)

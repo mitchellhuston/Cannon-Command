@@ -18,7 +18,8 @@ public class CityBlockManager {
 		// Spreads all city blocks evenly along the bottom of the world
 		for(int i = 0; i < blocks; i++)
 		{
-			cityBlocks.add(new CityBlock(-blockWidth*((-blocks/2f)+i), blockWidth));
+			//cityBlocks.add(new CityBlock(-blockWidth*((-blocks/2f)+i), blockWidth));
+			cityBlocks.add(new CityBlock((i - (blocks/2))*blockWidth + blockWidth/2, blockWidth/2));
 		}
 	}
 	
