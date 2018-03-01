@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import Helper.Utility;
+import Main.Utility;
 import Vector.Matrix3x3f;
 import Vector.Vector2f;
 
@@ -40,7 +40,20 @@ public class VectorObject implements Drawable {
 			worldPoly[i] = new Vector2f(viewport.mul(worldPoly[i]));
 		}
 		
-		Utility.drawPolygon(g, worldPoly, color);
+		drawPolygon(g, worldPoly, color);
+	}
+	
+	private void drawPolygon(Graphics g, Vector2f[] polygon, Color color) {
+		g.setColor(color);
+
+		Vector2f p;
+		Vector2f s = polygon[polygon.length - 1];
+
+		for (int i = 0; i < polygon.length; ++i) {
+			p = polygon[i];
+			g.drawLine((int) s.x, (int) s.y, (int) p.x, (int) p.y);
+			s = p;
+		}
 	}
 	
 	public void setViewport(Matrix3x3f viewport)

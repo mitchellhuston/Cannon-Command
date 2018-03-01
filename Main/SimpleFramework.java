@@ -14,7 +14,6 @@ import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
-import Helper.Utility;
 import Input.KeyboardInput;
 import Input.MouseInput;
 import Vector.Matrix3x3f;
