@@ -105,14 +105,6 @@ public class Game extends SimpleFramework {
 			}
 		}
 	}
-
-	// Used to translate the mouse's position from screen position to world position
-	protected Vector2f getWorldMousePosition(){
-		Matrix3x3f screenToWorld = getReverseViewportTransform();
-		Point mousePos = mouse.getPosition();
-		Vector2f screenPos = new Vector2f(mousePos.x, mousePos.y);
-		return screenToWorld.mul(screenPos);
-	}
 	
 	@Override
 	protected void render(Graphics g) {
